@@ -1,6 +1,6 @@
 # littletalks
 
-####Authors
+#### Authors
 * Rishab Banthiya
 * Daniel Hettinger
 
