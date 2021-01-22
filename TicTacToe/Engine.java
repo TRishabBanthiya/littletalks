@@ -39,10 +39,109 @@ public class Engine {
     }
 
     public void run() {
-
+        Evaluation evaluation = Evaluation.NO_WINNER;
+        while (evaluation == Evaluation.NO_WINNER) {
+            // Do some shit
+        }
     }
 
-    private void evaluate() {
-
+    private Evaluation evaluate() {
+        return Evaluation.INVALID;
     }
+
+    private boolean checkWinner(Player player) {
+        // Make sure that NO_PLAYER isn't checked.
+        if (player == Player.NO_PLAYER) {
+            throw new RuntimeException("ERROR: The game tried to check is \"NO_PLAYER\" was winner");
+        }
+
+        //TODO come back to this!
+        return true;
+    }
+
+    /**
+     * Checks the rows for a win.
+     *
+     * @param                           player is the player that is being checked for.
+     * @return                          true if the player has gotten three in a row.
+     */
+    private boolean hasWonRows(Player player) {
+        for (int row = 0; row < BOARD_SIZE; row++) {
+            for (int col = 0; col < BOARD_SIZE; col++) {
+
+                if (player != board[row][col]) {
+                    break;
+
+                } else if(col == (BOARD_SIZE - 1)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks the columns for a win.
+     *
+     * @param                           player is the player that is being checked for.
+     * @return                          true if the player has gotten three in a column.
+     */
+    private boolean hasWonColumns(Player player) {
+        for (int col = 0; col < BOARD_SIZE; col++) {
+            for (int row = 0; row < BOARD_SIZE; row++) {
+
+                if (player != board[row][col]) {
+                    break;
+
+                } else if (row == (BOARD_SIZE - 1)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks the L to R diagonal for a win.
+     *
+     * @param                           player is the player that is being checked for.
+     * @return                          true if the player has gotten three diagonally from left to right.
+     */
+    private boolean hasWonLtoR(Player player) {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+
+            if (player != board[i][i]) {
+                break;
+
+            } else if (i == (BOARD_SIZE - 1)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks the R to L diagonal for a win.
+     *
+     * @param                           player is the player that is being checked for.
+     * @return                          true if the player has gotten three diagonally from right to left.
+     */
+    private boolean hasWonRtoL(Player player) {
+        for (int col = (BOARD_SIZE - 1), row = 0; row < BOARD_SIZE; col--, row++) {
+
+            if (player != board[row][col]) {
+                break;
+
+            } else if (row == (BOARD_SIZE - 1)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 }
