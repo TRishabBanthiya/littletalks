@@ -12,11 +12,11 @@ public class Engine {
     // Constant for the dimensions of the board.
     private static int BOARD_SIZE = 3;
 
-    // Keeps track of the current state of the board. A sqaure can either have an 'X', 'O',
+    // Keeps track of the current state of the board. A square can either have an 'X', 'O',
     // or 'NO_PLAYER' (meaning that it is empty).
     private Player board[][];
 
-    // TODO add a AI player member variable. !!
+    private ComputerPlayer computerPlayer;
 
     /**
      * Constructor for the TicTacToe Engine.
@@ -35,6 +35,14 @@ public class Engine {
             }
         }
 
-        //TODO set the difficulty of the AI player.
+        computerPlayer = new ComputerPlayer(isHard);
+    }
+
+    public void run() {
+
+    }
+
+    private void evaluate() {
+
     }
 }
