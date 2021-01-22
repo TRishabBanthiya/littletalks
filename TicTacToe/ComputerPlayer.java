@@ -20,4 +20,16 @@ public class ComputerPlayer {
     public ComputerPlayer(boolean isHard) {
         this.isHard = isHard;
     }
+
+    public void play(Player board[][], int boardSize) {
+        for (int row = 0; row < boardSize; row++) {
+            for (int col = 0; col < boardSize; col++) {
+
+                if (board[row][col] == Player.NO_PLAYER) {
+                    board[row][col] = Player.X;
+                    return;
+                }
+            }
+        }
+    }
 }
