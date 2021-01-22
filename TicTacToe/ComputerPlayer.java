@@ -32,4 +32,12 @@ public class ComputerPlayer {
             }
         }
     }
+
+    private void playEasy() {
+
+    }
+
+    private void playHard() {
+
+    }
 }
